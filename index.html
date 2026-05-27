@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selected Work</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #080808;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 1.5rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 3rem;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 1.75rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      bottom: 6px;
+      width: 1px;
+      background: linear-gradient(to top,
+        transparent 0%,
+        rgba(255,255,255,0.6) 15%,
+        rgba(255,255,255,0.6) 85%,
+        transparent 100%
+      );
+      box-shadow: 0 0 6px rgba(255,255,255,0.25);
+    }
+
+    .item {
+      position: relative;
+      margin-bottom: 3rem;
+      cursor: pointer;
+    }
+
+    .item:last-child { margin-bottom: 0; }
+
+    .dot {
+      position: absolute;
+      left: -1.875rem;
+      top: 5px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 8px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.4);
+      transition: box-shadow 0.3s;
+    }
+
+    .item:hover .dot {
+      box-shadow: 0 0 12px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,0.6);
+    }
+
+    .item.future .dot {
+      background: rgba(255,255,255,0.2);
+      box-shadow: 0 0 6px rgba(255,255,255,0.15);
+    }
+
+    .date {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 0.5rem;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.02em;
+    }
+
+    .item.future .title { color: rgba(255,255,255,0.25); }
+
+    .desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.65;
+    }
+
+    .item.future .desc { color: rgba(255,255,255,0.18); }
+
+    .expand {
+      display: none;
+      margin-top: 0.75rem;
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.7;
+      border-left: 1px solid rgba(255,255,255,0.1);
+      padding-left: 1rem;
+    }
+
+    /* Photo inside expand — add later */
+    .expand img {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 0.75rem;
+      opacity: 0.85;
+    }
+
+    .item.open .expand { display: block; }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
+
+    .tag {
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 3px 10px;
+    }
+
+    .hint {
+      margin-top: 3rem;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.15);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="eyebrow">Selected work</div>
+
+    <div class="timeline">
+
+      <div class="item future">
+        <div class="dot"></div>
+        <div class="date">Next</div>
+        <div class="title">———</div>
+        <div class="desc">This space is reserved.</div>
+      </div>
+
+      <div class="item" onclick="this.classList.toggle('open')">
+        <div class="dot"></div>
+        <div class="date">February 2026</div>
+        <div class="title">Tab Volume Controller</div>
+        <div class="desc">Chrome extension for independent per-tab volume control. Published to the Chrome Web Store. Still live.</div>
+        <div class="expand">
+          First solo shipped product. Became a verified Chrome extension developer. Fully vibe coded with Gemini, submitted and approved by Google.
+          <!-- To add a photo later, paste this line below and replace the src:
+          <img src="images/tab-volume-controller.png" alt="Tab Volume Controller screenshot" />
+          -->
+        </div>
+        <div class="tags">
+          <span class="tag">Chrome Extension</span>
+          <span class="tag">Solo</span>
+          <span class="tag">Live</span>
+        </div>
+      </div>
+
+      <div class="item" onclick="this.classList.toggle('open')">
+        <div class="dot"></div>
+        <div class="date">November 2025</div>
+        <div class="title">Aggie Study Match</div>
+        <div class="desc">Full-stack web app matching students with compatible study partners. Built at a hackathon with a team of three.</div>
+        <div class="expand">
+          First time using GitHub for real collaboration. Designed and built the entire user-facing interface — responsive, clean, accessible. Vibe coded with Claude and Gemini under hackathon pressure.
+          <!-- To add a photo later, paste this line below and replace the src:
+          <img src="images/aggie-study-match.png" alt="Aggie Study Match screenshot" />
+          -->
+        </div>
+        <div class="tags">
+          <span class="tag">Full-stack</span>
+          <span class="tag">Hackathon</span>
+          <span class="tag">Team of 3</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="hint">Click a project to expand</div>
+  </div>
+
+  <script>
+    // Photos: create an "images" folder in your repo and drop screenshots in.
+    // Then uncomment the <img> lines inside each .expand div above.
+  </script>
+</body>
+</html>
